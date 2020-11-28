@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi_calculator/iconContent.dart';
 import 'package:bmi_calculator/resuableCard.dart';
+import 'resultScreen.dart';
 
 
 int height = 140;
@@ -60,6 +61,7 @@ class _InputScreenState extends State<InputScreen> {
       appBar: AppBar(
         title: Text("BMI Calculator"),
       ),
+      
       body: Column(
         children: [
           Expanded(
@@ -247,6 +249,11 @@ class _InputScreenState extends State<InputScreen> {
     ),
     GestureDetector(
             onTap: (){
+              Navigator.push(
+                context, 
+                MaterialPageRoute(builder: (context)=>ResultScreen()
+                )
+              );
             },
               child: Container(
               height: 60,
@@ -255,7 +262,7 @@ class _InputScreenState extends State<InputScreen> {
               ),
               child: Center(
                   child: Text(
-                    'CALCULATE YOUR BMI',
+                    'CALCULATE MY BMI',
                     style: TextStyle(
                       fontSize: 20,
                     )
