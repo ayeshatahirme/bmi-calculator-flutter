@@ -141,7 +141,52 @@ class _InputScreenState extends State<InputScreen> {
             child: Row(
               children: [
                 Expanded(
-                  child: ResuableCard(colour: inactiveCardColor)
+                  child: ResuableCard(colour: inactiveCardColor,
+                  cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'WEIGHT',
+                            style: TextStyle(
+                              fontSize: 20,
+                            )
+                          ),
+                          Text(
+                            '$weight',
+                            style: TextStyle(
+                              fontSize: 40,
+                            )
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              FloatingActionButton(
+                                onPressed: (){
+                                  setState(() {
+                                    weight = weight - 1;
+                                  });
+                                },
+                                heroTag: null,
+                                child: Icon(FontAwesomeIcons.minus),
+                                backgroundColor: Colors.grey,
+                                ),
+                                FloatingActionButton(
+                                onPressed: (){
+                                  setState(() {
+                                    weight++;
+                                  });
+                                },
+                                heroTag: null,
+                                child: Icon(FontAwesomeIcons.plus),
+                                backgroundColor: Colors.grey,
+                                )
+                          ],
+                        )
+                      ],
+                      ),
+                      )
+                  
+
                   
           ),
           Expanded(
@@ -173,8 +218,8 @@ class _InputScreenState extends State<InputScreen> {
     );
   }
 }
-
 /*
+
 child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
