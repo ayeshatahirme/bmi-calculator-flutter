@@ -164,11 +164,15 @@ class _InputScreenState extends State<InputScreen> {
                                 onPressed: (){
                                   setState(() {
                                     weight = weight - 1;
-                                  });
+                                  }
+                                  );
                                 },
                                 heroTag: null,
-                                child: Icon(FontAwesomeIcons.minus),
-                                backgroundColor: Colors.grey,
+                                child: Icon(FontAwesomeIcons.minus, color: Colors.white),
+                                backgroundColor: Color(0xFF4C4F5E),
+                                ),
+                                SizedBox(
+                                  width: 10,
                                 ),
                                 FloatingActionButton(
                                 onPressed: (){
@@ -177,8 +181,8 @@ class _InputScreenState extends State<InputScreen> {
                                   });
                                 },
                                 heroTag: null,
-                                child: Icon(FontAwesomeIcons.plus),
-                                backgroundColor: Colors.grey,
+                                child: Icon(FontAwesomeIcons.plus, color: Colors.white),
+                                backgroundColor: Color(0xFF4C4F5E),
                                 )
                           ],
                         )
@@ -190,7 +194,53 @@ class _InputScreenState extends State<InputScreen> {
                   
           ),
           Expanded(
-                  child: ResuableCard(colour: inactiveCardColor)
+                  child: ResuableCard(colour: inactiveCardColor,
+                  cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'AGE',
+                            style: TextStyle(
+                              fontSize: 20,
+                            )
+                          ),
+                          Text(
+                            '$age',
+                            style: TextStyle(
+                              fontSize: 40,
+                            )
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              FloatingActionButton(
+                                onPressed: (){
+                                  setState(() {
+                                    age = age  -1;
+                                  });
+                                },
+                                heroTag: null,
+                                child: Icon(FontAwesomeIcons.minus, color: Colors.white),
+                                backgroundColor: Color(0xFF4C4F5E),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                FloatingActionButton(
+                                onPressed: (){
+                                  setState(() {
+                                    age++;
+                                  });
+                                },
+                                heroTag: null,
+                                child: Icon(FontAwesomeIcons.plus, color: Colors.white),
+                                backgroundColor: Color(0xFF4C4F5E),
+                                )
+                          ],
+                        )
+                      ],
+                      ),
+                      )
           ),
         ],
       ),
