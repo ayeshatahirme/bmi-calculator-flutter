@@ -3,7 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi_calculator/iconContent.dart';
 import 'package:bmi_calculator/resuableCard.dart';
 import 'resultScreen.dart';
-
+import 'bottomButton.Dart';
+import 'calculator.Dart';
 
 int height = 140;
 int age = 20;
@@ -247,134 +248,26 @@ class _InputScreenState extends State<InputScreen> {
         ],
       ),
     ),
-    GestureDetector(
-            onTap: (){
+    BottomButton(
+      buttonTitle: 'CALCULATE',
+      onTap: (){
+        Calculator cal = Calculator(height: height, weight: weight); 
               Navigator.push(
                 context, 
-                MaterialPageRoute(builder: (context)=>ResultScreen()
+                MaterialPageRoute(builder: (context)=>ResultScreen(
+                  bmiResult: cal.calculateBMI(),
+                  text: cal.getResult(),
+                  message: cal.message(),
+                )
                 )
               );
             },
-              child: Container(
-              height: 60,
-              decoration: BoxDecoration(
-                color: Color(0xFFEB1555),
-              ),
-              child: Center(
-                  child: Text(
-                    'CALCULATE MY BMI',
-                    style: TextStyle(
-                      fontSize: 20,
-                    )
-                  )
-                )
-            ),
-          )
+            )
   ]
       )
     );
   }
 }
-/*
 
-child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Container(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'WEIGHT',
-                            style: TextStyle(
-                              fontSize: 20,
-                            )
-                          ),
-                          Text(
-                            '$weight',
-                            style: TextStyle(
-                              fontSize: 40,
-                            )
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              FloatingActionButton(
-                                onPressed: (){
-                                  setState(() {
-                                    weight = weight - 1;
-                                  });
-                                },
-                                heroTag: null,
-                                child: Icon(FontAwesomeIcons.minus),
-                                backgroundColor: Colors.grey,
-                                ),
-                                FloatingActionButton(
-                                onPressed: (){
-                                  setState(() {
-                                    weight++;
-                                  });
-                                },
-                                heroTag: null,
-                                child: Icon(FontAwesomeIcons.plus),
-                                backgroundColor: Colors.grey,
-                                )
-                          ],
-                        )
-                      ],
-                      ),
-                    ),
-                  ),
-                  
-                  
-                  Expanded(
-                    child: Container(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'AGE',
-                            style: TextStyle(
-                              fontSize: 20,
-                            )
-                          ),
-                          Text(
-                            '$age',
-                            style: TextStyle(
-                              fontSize: 40,
-                            )
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              FloatingActionButton(
-                                onPressed: (){
-                                  setState(() {
-                                    age = age  -1;
-                                  });
-                                },
-                                heroTag: null,
-                                child: Icon(FontAwesomeIcons.minus),
-                                backgroundColor: Colors.grey,
-                                ),
-                                FloatingActionButton(
-                                onPressed: (){
-                                  setState(() {
-                                    age++;
-                                  });
-                                },
-                                heroTag: null,
-                                child: Icon(FontAwesomeIcons.plus),
-                                backgroundColor: Colors.grey,
-                                )
-                          ],
-                        )
-                      ],
-                      ),
-                    ),
-                  )
-                
-                ]
-              ),
- */
+
+
