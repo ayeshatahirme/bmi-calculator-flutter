@@ -25,7 +25,7 @@ Open Github project repository that you want to download, at the right hand ther
 
 ### Step 2. Open in Code Editor
 To run the project, you need to open it in Visual Studio Code. Open the project folder, there will be another folder named **“bmi-calculator-flutter”**. This folder contains the files that you will need to set up the project.
-Connect your phone using data cable with laptop. Both laptop and device must have same internet connected. Turn on the **usd debugging** on device.
+Connect your phone using data cable with laptop. Both laptop and device must have same internet connected. Turn on the **usb debugging** on device.
 
 ### Step 5. Run the project.
 Now you are all set to run the project. To run the Visual Studio Code run **flutter run** command.
