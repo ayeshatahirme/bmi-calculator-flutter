@@ -32,8 +32,8 @@ Now you are all set to run the project. To run the Visual Studio Code run **flut
 
 ### Screenshots of app
 <p>
- <img align="left" src="Project_Screenshots/inputppage.png" width="300">
+ <img align="left" src="Project_Screenshots/inputppage.png" width="350">
  
  
- <img align="right" src="Project_Screenshots/result.png" width="300">
+ <img align="right" src="Project_Screenshots/result.png" width="350">
 </p>
