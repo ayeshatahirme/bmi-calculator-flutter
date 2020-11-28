@@ -1,7 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:bmi_calculator/iconContent.dart';
+import 'package:bmi_calculator/resuableCard.dart';
 
-class InputScreen extends StatelessWidget {
+
+int height = 140;
+int age = 20;
+int weight = 65;
+
+ //For Material Theme
+const primaryColor = Color(0xFF0A0E21);
+const scaffoldBackgroundColor = Color(0xFF0A0E21);
+
+// For Bottom Container
+const bottomContainerColor = Color(0xFFEB1555);
+
+const activeCardColor = Color(0xFF1D1E33);
+const inactiveCardColor = Color(0xFF111328);
+
+class InputScreen extends StatefulWidget {
+  @override
+  _InputScreenState createState() => _InputScreenState();
+}
+class _InputScreenState extends State<InputScreen> {
+  Color maleCardColor = inactiveCardColor;
+  Color femaleCardColor = inactiveCardColor;
+
+// 1 for male, 2 for female
+  void changeColor(int gender)
+  {
+    if(gender == 1)
+    {
+      if(maleCardColor == inactiveCardColor)
+      {
+        maleCardColor = activeCardColor;
+        femaleCardColor = inactiveCardColor;
+      }
+      else{
+        maleCardColor = inactiveCardColor;
+      }
+    }
+    if(gender == 2)
+    {
+      if(femaleCardColor == inactiveCardColor)
+      {
+        femaleCardColor = activeCardColor;
+        maleCardColor = inactiveCardColor;
+      }
+      else{
+        femaleCardColor = inactiveCardColor;
+      }
+    }
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,85 +63,216 @@ class InputScreen extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: Container(
-              margin: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Color(0xFF1D1E33),
-              ),            
-              child: Expanded(
-                  child: Row(
-                    children: [
-                      Container(
-                        child: Expanded(
-                            child: Column(
-                              children: [Icon(FontAwesomeIcons.mars,
-                              size: 80,),
-                              SizedBox(
-                                height: 15,
-                                ),
-                              Text(
-                                "MALE",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ),
-                              ),
-                            ],
-                            
-                            ),
-                        )
+            // Male column
+            child: Row(
+              children: [
+                Expanded(
+                  child: GestureDetector(
+                    onTap: (){
+                      setState(() {
+                        changeColor(1);
+                      });
+                    },
+                      child: ResuableCard(
+                      colour: maleCardColor,
+                      cardChild: IconContent(icon: FontAwesomeIcons.mars, label: 'MALE',),
+                    ),
+                  )
+
+          ),
+          Expanded(
+                  child: GestureDetector(
+                    onTap: (){
+                      setState(() {
+                        changeColor(2);
+                      });
+                    },
+                      child: ResuableCard(
+                      colour: femaleCardColor,
+                      cardChild: IconContent(icon: FontAwesomeIcons.venus, label: 'FEMALE'),
                       ),
-                      Expanded(
-                          child: Container(
-                          child: Column(
-                            children: [
-                              Icon(FontAwesomeIcons.venus,
-                              size: 80,),
-                              SizedBox(
-                                height: 15,
-                                ),
-                              Text(
-                                "FEMALE",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ),
-                              ),
-                            ],
-                            
-                            )
-                        ),
-                      )
-                                          
-                    ],
+                  )
+          )
+        ]
+      ), 
+    ),
+          Expanded(
+            child: Container(
+              margin: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                color: inactiveCardColor,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Height',
+                  style: TextStyle(
+                    fontSize: 20,
                   ),
+                ),
+                Text(
+                  height.toString() + 'cm',
+                  style: TextStyle(
+                    fontSize: 50,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Slider(
+                  value: height.toDouble(), 
+                  min: 120,
+                  max: 220,
+                  activeColor: bottomContainerColor,
+                  //inactiveColor: inactiveCardColor,
+                  onChanged: (newValue){
+                    setState(() {
+                      height = newValue.round();
+                      }
+                    );
+                  }
+                )
+
+                ],
               ),
             ) 
           ),
+          
           Expanded(
-            child: Container(
-              margin: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Color(0xFF1D1E33),
-              ),            
-            ) 
+            child: Row(
+              children: [
+                Expanded(
+                  child: ResuableCard(colour: inactiveCardColor)
+                  
           ),
           Expanded(
-            child: Container(
-              margin: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Color(0xFF1D1E33),
-              ),            
-            ) 
+                  child: ResuableCard(colour: inactiveCardColor)
           ),
-          Expanded(
-            child: Container(
-              margin: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Color(0xFF1D1E33),
-              ),            
-            ) 
-          )
         ],
       ),
+    ),
+    GestureDetector(
+            onTap: (){
+            },
+              child: Container(
+              height: 60,
+              decoration: BoxDecoration(
+                color: Color(0xFFEB1555),
+              ),
+              child: Center(
+                  child: Text(
+                    'CALCULATE YOUR BMI',
+                    style: TextStyle(
+                      fontSize: 20,
+                    )
+                  )
+                )
+            ),
+          )
+  ]
+      )
     );
   }
 }
+
+/*
+child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Container(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'WEIGHT',
+                            style: TextStyle(
+                              fontSize: 20,
+                            )
+                          ),
+                          Text(
+                            '$weight',
+                            style: TextStyle(
+                              fontSize: 40,
+                            )
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              FloatingActionButton(
+                                onPressed: (){
+                                  setState(() {
+                                    weight = weight - 1;
+                                  });
+                                },
+                                heroTag: null,
+                                child: Icon(FontAwesomeIcons.minus),
+                                backgroundColor: Colors.grey,
+                                ),
+                                FloatingActionButton(
+                                onPressed: (){
+                                  setState(() {
+                                    weight++;
+                                  });
+                                },
+                                heroTag: null,
+                                child: Icon(FontAwesomeIcons.plus),
+                                backgroundColor: Colors.grey,
+                                )
+                          ],
+                        )
+                      ],
+                      ),
+                    ),
+                  ),
+                  
+                  
+                  Expanded(
+                    child: Container(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'AGE',
+                            style: TextStyle(
+                              fontSize: 20,
+                            )
+                          ),
+                          Text(
+                            '$age',
+                            style: TextStyle(
+                              fontSize: 40,
+                            )
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              FloatingActionButton(
+                                onPressed: (){
+                                  setState(() {
+                                    age = age  -1;
+                                  });
+                                },
+                                heroTag: null,
+                                child: Icon(FontAwesomeIcons.minus),
+                                backgroundColor: Colors.grey,
+                                ),
+                                FloatingActionButton(
+                                onPressed: (){
+                                  setState(() {
+                                    age++;
+                                  });
+                                },
+                                heroTag: null,
+                                child: Icon(FontAwesomeIcons.plus),
+                                backgroundColor: Colors.grey,
+                                )
+                          ],
+                        )
+                      ],
+                      ),
+                    ),
+                  )
+                
+                ]
+              ),
+ */
