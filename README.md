@@ -30,3 +30,5 @@ Connect your phone using data cable with laptop. Both laptop and device must hav
 ### Step 5. Run the project.
 Now you are all set to run the project. To run the Visual Studio Code run **flutter run** command.
 
+### Screenshots of app
+
