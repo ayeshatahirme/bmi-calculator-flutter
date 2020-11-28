@@ -31,4 +31,9 @@ Connect your phone using data cable with laptop. Both laptop and device must hav
 Now you are all set to run the project. To run the Visual Studio Code run **flutter run** command.
 
 ### Screenshots of app
-![](Project_Screenshots/inputppage.png =100x20)
+<p>
+ <img align="left" src="Project_Screenshots/inputppage.png" width="300">
+ 
+ 
+ <img align="right" src="Project_Screenshots/result.png" width="300">
+</p>
