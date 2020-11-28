@@ -22,14 +22,14 @@ class ResultScreen extends StatelessWidget {
           Expanded(
             child: Container(
               padding: EdgeInsets.all(15),
-              alignment: Alignment.bottomLeft,
+              //alignment: Alignment.bottomLeft,
               child: Text(
-                'YOUR RESULT',
+                'RESULT',
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.bold,
                 ),
-                textAlign: TextAlign.center,
               )
             )
           ),
@@ -46,14 +46,14 @@ class ResultScreen extends StatelessWidget {
                     style: TextStyle(
                       color: Color(0xFF24D876),
                       fontWeight: FontWeight.bold,
-                      fontSize: 22,
+                      fontSize: 35,
                     ),
                   ),
                   Text(
                     text,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 100,
+                      fontSize: 50,
                     ),
                   ),
                   Text(

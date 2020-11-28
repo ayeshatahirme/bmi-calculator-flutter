@@ -254,7 +254,7 @@ class _InputScreenState extends State<InputScreen> {
         Calculator cal = Calculator(height: height, weight: weight); 
               Navigator.push(
                 context, 
-                MaterialPageRoute(builder: (context)=>ResultScreen(
+                MaterialPageRoute(builder: (context) => ResultScreen(
                   bmiResult: cal.calculateBMI(),
                   text: cal.getResult(),
                   message: cal.message(),
