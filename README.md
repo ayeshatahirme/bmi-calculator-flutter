@@ -1,6 +1,6 @@
 # BMI CALCULATOR
 ## Using Flutter
-The inputs given to make timetable are gender, weight, age, height
+The inputs given to calculate BMI are gender, weight, age, height
 
 # Software Installation
 ### Visual Studio Code
