@@ -1,7 +1,7 @@
 # BMI CALCULATOR
 ## Using Flutter
 The inputs given to calculate BMI are gender, weight, age, height
-
+Body Mass Index is a person's weight in kilograms divided by the square of height in meters (or feet). A high BMI can indicate high body fatness. BMI screens for weight categories that may lead to health problems, but it does not diagnose the body fatness or health of an individual
 # Software Installation
 ### Visual Studio Code
 To install the code editor Visual Studio Code [Click Here!](https://code.visualstudio.com/)
